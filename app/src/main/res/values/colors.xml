@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="home">#1194AA</color>
     <color name="profile">#1194AA</color>
+    <color name="payment">#1194AA</color>
     <color name="settings">#1194AA</color>
 
 </resources>
