@@ -21,12 +21,12 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:backgroundTint="@color/white"
-        android:textColorHint="@color/white"
-        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:textColorHint="#CCCCCC"
+        android:drawableStart="@drawable/ic_baseline_email_white"
         android:drawablePadding="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:inputType="textEmailAddress"/>
 
     <EditText
@@ -34,12 +34,12 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:backgroundTint="@color/white"
-        android:textColorHint="@color/white"
+        android:textColorHint="#CCCCCC"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:inputType="textPassword"/>
 
     <EditText
@@ -47,12 +47,13 @@
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
         android:backgroundTint="@color/white"
-        android:textColorHint="@color/white"
+        android:textColorHint="#CCCCCC"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="25dp"
+        android:inputType="textPassword"/>
 
     <Button
         android:layout_width="match_parent"
@@ -61,7 +62,7 @@
         android:text="Sign Up"
         android:textColor="@color/white"
         android:textSize="18dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp" />
 

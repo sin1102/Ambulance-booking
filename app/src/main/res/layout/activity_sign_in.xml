@@ -38,14 +38,15 @@
         android:textColor="@color/white"
         android:hint="Email"
         android:backgroundTint="@color/white"
-        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawableStart="@drawable/ic_baseline_email_white"
         android:drawablePadding="10dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="#CCCCCC"
         android:padding="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="40dp"
-        android:textSize="18dp"/>
+        android:textSize="16dp"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -55,25 +56,27 @@
         android:backgroundTint="@color/white"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="#CCCCCC"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:padding="10dp"
-        android:textSize="18dp"/>
+        android:textSize="16dp"
+        android:inputType="textPassword"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp">
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:text="Remember me"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textColor="@color/white"
             android:buttonTint="@color/white"
             android:layout_marginTop="10dp" />
@@ -85,8 +88,8 @@
             android:gravity="right"
             android:text="Forgot Password ?"
             android:textColor="@color/white"
-            android:textSize="18dp"
-            android:layout_marginStart="70dp"/>
+            android:textSize="16dp"
+            android:layout_marginStart="101dp"/>
 
     </LinearLayout>
 
@@ -100,7 +103,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:textSize="18dp"
         android:background="@drawable/radius_corner_button_sign_in"/>
 
@@ -110,8 +113,8 @@
         android:text="No Account Yet? Create An Account"
         android:textColor="@color/white"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:textSize="18dp"/>
+        android:layout_marginTop="15dp"
+        android:textSize="16dp"/>
 
 
 </LinearLayout>
