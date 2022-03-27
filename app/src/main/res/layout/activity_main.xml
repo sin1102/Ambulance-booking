@@ -98,7 +98,7 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="197dp"
         android:layout_height="75dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="56dp"
         android:text="About us"
         android:textColor="#000000"
         android:textStyle="bold"
