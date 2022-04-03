@@ -35,11 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         bottom_nav.setOnItemReselectedListener {
             when(it.itemId){
-                R.id.ic_home -> {
-                    intent = Intent(this, MainActivity::class.java).also {
-                        startActivity(it)
-                    }
-                }
                 R.id.ic_settings -> {
                     intent = Intent(this, Settings::class.java).also {
                         startActivity(it)
