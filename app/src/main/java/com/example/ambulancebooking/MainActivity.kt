@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.libraries.places.api.Places
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,11 +21,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var checkAnim = findViewById<LottieAnimationView>(R.id.lottieAmbulance)
-        checkAnim.setOnClickListener{
-            val intent = Intent(this, Map::class.java)
-            startActivity(intent)
+        aboutButton.setOnClickListener{
+            val intent = Intent(this, About::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        contactButton.setOnClickListener{
+            val intent = Intent(this, Contact::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        bottom_nav.setOnItemReselectedListener {
+            when(it.itemId){
+                R.id.ic_home -> {
+                    intent = Intent(this, MainActivity::class.java).also {
+                        startActivity(it)
+                    }
+                }
+                R.id.ic_settings -> {
+                    intent = Intent(this, Settings::class.java).also {
+                        startActivity(it)
+                    }
+                }
+                R.id.ic_payment -> {
+                    intent = Intent(this, Payment::class.java).also {
+                        startActivity(it)
+                    }
+                }
+            }
+        }
+
+            var checkAnim = findViewById<LottieAnimationView>(R.id.lottieAmbulance)
+            checkAnim.setOnClickListener {
+                val intent = Intent(this, Map::class.java).also {
+                    startActivity(it)
+                }
+
+            }
         }
     }
-
-}
