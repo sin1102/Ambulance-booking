@@ -22,13 +22,13 @@ gradle-app.setting
 # IDEA
 *.iml
 *.ipr
-*.iws
+.iws
 out
 .idea
 
 # Maven
 target
 release.properties
-pom.xml.*
+pom.xml.
 # Github
 gh-pages

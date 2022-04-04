@@ -1,4 +1,4 @@
-package com.example.ambulancebooking
+package com.example.ambulancebooking.Map
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -6,7 +6,7 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import com.example.ambulancebooking.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -14,8 +14,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_about.*
 
 class Map : AppCompatActivity(), OnMapReadyCallback {
     var currentLocation : Location? = null
@@ -28,18 +28,11 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
-//        val mapFragment = supportFragmentManager.findFragmentById(
-//            R.id.map_fragment
-//        ) as? SupportMapFragment
-//        mapFragment?.getMapAsync { googleMap ->
-//            googleMap.setOnMapLoadedCallback {
-////                val bounds = LatLngBounds.builder()
-////                places.forEach { bounds.include(it.latLng) }
-////                googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 20))
-//
-//            }
-//        //addMarkers(googleMap)
-//        }
+
+        backButton.setOnClickListener(){
+            onBackPressed()
+        }
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         fetchLocation()
@@ -70,6 +63,24 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15f))
         googleMap.addMarker(markerOptions)
+
+        googleMap.uiSettings.isZoomControlsEnabled = true
+        googleMap.uiSettings.isCompassEnabled = true
+        googleMap.uiSettings.isZoomGesturesEnabled = true
+        googleMap.uiSettings.isScrollGesturesEnabled = true
+        googleMap.uiSettings.isRotateGesturesEnabled = false
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+        googleMap.isMyLocationEnabled = true
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

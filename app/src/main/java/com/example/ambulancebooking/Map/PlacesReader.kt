@@ -1,6 +1,7 @@
-package com.example.ambulancebooking
+package com.example.ambulancebooking.Map
 
 import android.content.Context
+import com.example.ambulancebooking.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStream
