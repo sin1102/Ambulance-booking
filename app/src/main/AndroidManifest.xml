@@ -13,11 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
-            android:name=".MyProfileActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+            android:name=".ProfileActivity"
+            android:exported="false"
+            />
 
         <activity
             android:name=".Map"
@@ -37,6 +35,7 @@
 
         </activity>
 
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -49,10 +48,12 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+            android:resource="@array/preloaded_fonts"
+            />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I" />
+            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I"/>
+
     </application>
 
 </manifest>
