@@ -13,8 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Map"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,21 +30,17 @@
         <activity
             android:name=".SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"
-            />
+            android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I"/>
-
+            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I" />
     </application>
 
 </manifest>
