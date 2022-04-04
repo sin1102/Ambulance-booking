@@ -1,4 +1,4 @@
-package com.example.ambulancebooking
+package com.example.ambulancebooking.Map
 
 import com.google.android.gms.maps.model.LatLng
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Contact">
+    tools:context=".Menu.Contact">
 
     <ImageView
         android:layout_width="match_parent"
@@ -16,11 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText6"
         android:layout_width="295dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="32dp"
         android:text="0123456789"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -29,11 +29,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/lottieCall" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText5"
         android:layout_width="295dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="48dp"
         android:text="facebook.com/ambulance-booking"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -136,10 +136,10 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/website" />
 
-    <EditText
+    <TextView
         android:layout_width="292dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="36dp"
         android:text="ambulacebooking@gmail.com"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -148,17 +148,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/lottieMail" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText7"
         android:layout_width="301dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="48dp"
         android:text="ambulancebooking.com"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/lottieWebsite" />
 
 

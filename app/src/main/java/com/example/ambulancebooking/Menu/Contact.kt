@@ -1,15 +1,16 @@
-package com.example.ambulancebooking
+package com.example.ambulancebooking.Menu
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_about.*
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.ambulancebooking.R
 
-class Payment : AppCompatActivity() {
+class Contact : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment)
+        setContentView(R.layout.activity_contact)
 
         backButton.setOnClickListener() {
             onBackPressed()

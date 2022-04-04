@@ -4,13 +4,12 @@ package com.example.ambulancebooking
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.libraries.places.api.Places
+import com.example.ambulancebooking.Map.Map
+import com.example.ambulancebooking.Menu.About
+import com.example.ambulancebooking.Menu.Contact
+import com.example.ambulancebooking.Menu.Payment
+import com.example.ambulancebooking.Menu.Settings
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
