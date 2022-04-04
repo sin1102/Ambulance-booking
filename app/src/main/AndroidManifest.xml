@@ -13,18 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
-            android:name=".Menu.Payment"
-            android:exported="true" />
+            android:name=".MyProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
         <activity
-            android:name=".Map.Map"
+            android:name=".Map"
             android:exported="true"></activity>
+
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
         <activity
             android:name=".SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -34,22 +46,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Menu.About"
-            android:exported="false" />
-        <activity
-            android:name=".Menu.Contact"
-            android:exported="false" />
-        <activity
-            android:name=".Menu.Settings"
-            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA_f0xQUCHnyamgdP4NQa6eq06tHP1i5eU" />
+            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I" />
     </application>
 
 </manifest>

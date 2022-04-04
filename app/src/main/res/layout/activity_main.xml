@@ -7,6 +7,7 @@
     android:layout_gravity="center"
     tools:context=".MainActivity">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,11 +45,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="195dp"
-        android:layout_height="186dp"
+        android:layout_width="162dp"
+        android:layout_height="172dp"
         android:layout_margin="15dp"
+        android:background="@drawable/round_shape"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintBottom_toTopOf="@+id/chipNavigationBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,23 +59,21 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAmbulance"
-            android:layout_width="208dp"
-            android:layout_height="212dp"
+            android:layout_width="162dp"
+            android:layout_height="172dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/circle_red_button" />
+            app:lottie_rawRes="@raw/ambulance" />
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/chipNavigationBar"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/purple_500"
-        app:itemIconTint="#fff"
-        app:itemTextColor="#fff"
+        android:layout_height="wrap_content"
+        android:background="#fff"
         android:elevation="16dp"
         android:gravity="center"
-        app:menu="@menu/menu"
+        app:cnb_menuResource="@menu/menu"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 
@@ -82,17 +82,15 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="198dp"
         android:layout_height="74dp"
-        android:text="Contact us"
+        android:text="Contect us"
         android:textColor="#000000"
         android:textStyle="bold"
         app:icon="@drawable/ic_contact_phone"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintBottom_toTopOf="@+id/chipNavigationBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aboutButton"
-        app:layout_constraintVertical_bias="0.236"
-        app:strokeColor="@color/purple_500"
+        app:strokeColor="#FA8072"
         app:strokeWidth="3dp" />
 
     <Button
@@ -100,15 +98,28 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="197dp"
         android:layout_height="75dp"
-        android:layout_marginTop="48dp"
-        android:text="About"
+        android:layout_marginTop="56dp"
+        android:text="About us"
         android:textColor="#000000"
         android:textStyle="bold"
         app:icon="@drawable/ic_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:strokeColor="@color/purple_500"
+        app:strokeColor="#FA8072"
         app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/notificationButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        app:icon="@drawable/ic_notifications"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
