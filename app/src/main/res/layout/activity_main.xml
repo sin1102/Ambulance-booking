@@ -45,10 +45,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="192dp"
-        android:layout_height="183dp"
+        android:layout_width="195dp"
+        android:layout_height="186dp"
         android:layout_margin="15dp"
-        android:background="@drawable/round_shape"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,19 +58,20 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAmbulance"
-            android:layout_width="162dp"
-            android:layout_height="172dp"
+            android:layout_width="208dp"
+            android:layout_height="212dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/ambulance" />
+            app:lottie_rawRes="@raw/circle_red_button" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/purple_700"
-        app:itemBackground="@color/white"
+        android:background="@color/purple_500"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
         android:elevation="16dp"
         android:gravity="center"
         app:menu="@menu/menu"
@@ -93,7 +93,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aboutButton"
         app:layout_constraintVertical_bias="0.236"
-        app:strokeColor="@color/purple_700"
+        app:strokeColor="@color/purple_500"
         app:strokeWidth="3dp" />
 
     <Button
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:strokeColor="@color/purple_700"
+        app:strokeColor="@color/purple_500"
         app:strokeWidth="3dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
