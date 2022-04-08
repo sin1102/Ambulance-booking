@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.ic_profile -> {
-                    intent = Intent(this, MyProfileActivity::class.java).also {
+                    intent = Intent(this, ProfileActivity::class.java).also {
                         startActivity(it)
                     }
                     true
