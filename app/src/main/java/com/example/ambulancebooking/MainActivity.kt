@@ -32,21 +32,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        bottom_nav.setOnItemReselectedListener() {
-//            when(it.itemId){
-//                R.id.ic_settings -> {
-//                    intent = Intent(this, Settings::class.java).also {
-//                        startActivity(it)
-//                    }
-//                }
-//                R.id.ic_payment -> {
-//                    intent = Intent(this, Payment::class.java).also {
-//                        startActivity(it)
-//                    }
-//                }
-//            }
-//        }
-
         bottom_nav.setOnItemSelectedListener() {
             when(it.itemId) {
                 R.id.ic_payment -> {
@@ -61,15 +46,21 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
+                R.id.ic_profile -> {
+                    intent = Intent(this, MyProfileActivity::class.java).also {
+                        startActivity(it)
+                    }
+                    true
+                }
                 else -> false
             }
         }
-            var checkAnim = findViewById<LottieAnimationView>(R.id.lottieAmbulance)
-            checkAnim.setOnClickListener {
-                val intent = Intent(this, Map::class.java).also {
-                    startActivity(it)
-                }
-
+        var checkAnim = findViewById<LottieAnimationView>(R.id.lottieAmbulance)
+        checkAnim.setOnClickListener {
+            val intent = Intent(this, Map::class.java).also {
+                startActivity(it)
             }
+
         }
     }
+}

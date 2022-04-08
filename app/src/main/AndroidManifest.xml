@@ -18,7 +18,27 @@
             />
 
         <activity
-            android:name=".Map"
+            android:name=".Map.Map"
+            android:exported="true"></activity>
+
+        <activity
+            android:name=".Menu.About"
+            android:exported="true"></activity>
+
+        <activity
+            android:name=".Menu.Payment"
+            android:exported="true"></activity>
+
+        <activity
+            android:name=".Menu.Contact"
+            android:exported="true"></activity>
+
+        <activity
+            android:name=".Menu.Settings"
+            android:exported="true"></activity>
+
+        <activity
+            android:name=".MyProfileActivity"
             android:exported="true"></activity>
 
         <activity

@@ -47,13 +47,13 @@
         android:layout_marginTop="15dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/okButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_check_24"
         app:fabSize="normal"
         android:elevation="6dp"
         android:layout_marginTop="30dp"/>
-
 
 
 </LinearLayout>
