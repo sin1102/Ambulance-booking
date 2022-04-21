@@ -23,6 +23,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        fAuth = FirebaseAuth.getInstance()
         binding.btnSignUp.setOnClickListener{
             signUp()
         }
@@ -68,27 +69,32 @@ class SignUpActivity : AppCompatActivity() {
             binding.edtConfirmPassword.requestFocus()
             return
         }else{
-            fAuth = FirebaseAuth.getInstance()
-            userAuth = FirebaseAuth.getInstance().currentUser!!
-            userID = FirebaseAuth.getInstance().uid!!
-            fAuth.createUserWithEmailAndPassword(edtEmail, edtPassword).addOnSuccessListener {
-                if(userAuth.isEmailVerified){
-                    showToast("Email has been used. Please try another one")
-                }else{
-                    userAuth.sendEmailVerification()
+            fAuth.createUserWithEmailAndPassword(edtEmail, edtPassword).addOnCompleteListener {task ->
+                userAuth = FirebaseAuth.getInstance().currentUser!!
+                userID = fAuth.uid!!
+                if(task.isSuccessful){
                     database = FirebaseDatabase.getInstance().getReference("Users")
                     val user = Users(edtName, edtEmail)
                     database.child(userID).setValue(user)
-                    val intent = Intent(applicationContext, SignInActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                    showToast("Registered Successfully")
+                    if(userAuth.isEmailVerified){
+                        showToast("Email used. Please try another one")
+                    }else{
+                        userAuth.sendEmailVerification()
+                        showToast("Registered Successfully")
+                        startActivity(Intent(applicationContext, SignInActivity::class.java))
+                        finishAffinity()
+                    }
+                }else{
+                    showToast("Email already existed")
                 }
 
-            }.addOnFailureListener {
-                showToast("Email already exists")
             }
-
+//            userAuth.sendEmailVerification()
+//
+//            val intent = Intent(applicationContext, SignInActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//            showToast("Registered Successfully")
         }
     }
 }

@@ -44,7 +44,7 @@ class SignInActivity : AppCompatActivity(){
     private fun checkUser(){
         if(fAuth.currentUser != null){
             startActivity(Intent(applicationContext, MainActivity::class.java))
-            finishAffinity()
+            finish()
         }
     }
 
@@ -66,22 +66,19 @@ class SignInActivity : AppCompatActivity(){
             binding.edtPassword.requestFocus()
             return
         }else{
-            fAuth.signInWithEmailAndPassword(edtEmail, edtPassword).addOnSuccessListener {
+            fAuth.signInWithEmailAndPassword(edtEmail, edtPassword).addOnCompleteListener {task ->
                 userAuth = fAuth.currentUser!!
-                if(userAuth.isEmailVerified){
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
-                    finishAffinity()
+                if(task.isSuccessful){
+                    if(userAuth.isEmailVerified){
+                        startActivity(Intent(applicationContext, MainActivity::class.java))
+                        finishAffinity()
+                    }else{
+                        showToast("Please verify your email")
+                    }
                 }else{
-                    showToast("Please verify your email")
-                    return@addOnSuccessListener
+                    showToast("Wrong password or email")
                 }
-            }.addOnFailureListener {
-                showToast("Wrong password or email")
-                return@addOnFailureListener
             }
         }
-
-
     }
-
 }

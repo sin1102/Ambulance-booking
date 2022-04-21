@@ -21,9 +21,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var isChecked = false
-    private lateinit var database : DatabaseReference
-    private lateinit var userID : String
-    private lateinit var userAuth : FirebaseUser
     private lateinit var fAuth : FirebaseAuth
     private lateinit var binding : ActivityMainBinding
 
@@ -31,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        fAuth = FirebaseAuth.getInstance()
+        checkUser()
 
         aboutButton.setOnClickListener{
             val intent = Intent(this, About::class.java).also {
@@ -72,7 +71,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Map::class.java).also {
                 startActivity(it)
             }
+        }
+    }
 
+    private fun checkUser(){
+        val firebaseUser = fAuth.currentUser
+        if(fAuth != null){
+            val email = firebaseUser?.email
+            binding.txtName.text = email
         }
     }
 
