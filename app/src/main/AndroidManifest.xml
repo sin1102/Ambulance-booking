@@ -12,6 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
+
         <activity
             android:name=".user.ForgotPasswordActivity"
             android:exported="false" />
@@ -37,8 +38,15 @@
             android:name=".user.SignUpActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".user.SignInActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".SplashScreen.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -46,10 +54,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> -->
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
 
         <meta-data
             android:name="preloaded_fonts"
