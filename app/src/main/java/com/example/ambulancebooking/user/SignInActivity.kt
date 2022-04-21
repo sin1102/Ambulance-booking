@@ -20,18 +20,20 @@ class SignInActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        fAuth = FirebaseAuth.getInstance()
         setListener()
-        signIn()
-        //checkUser()
+        checkUser()
     }
 
     private fun setListener(){
         binding.btnSignIn.setOnClickListener {
             signIn()
         }
-
-        binding.txtSignUp.setOnClickListener{
+        binding.btnSignUp.setOnClickListener{
             startActivity(Intent(applicationContext, SignUpActivity::class.java))
+        }
+        binding.txtForgotPassword.setOnClickListener{
+            startActivity(Intent(applicationContext, ForgotPasswordActivity::class.java))
         }
     }
 
@@ -40,11 +42,9 @@ class SignInActivity : AppCompatActivity(){
     }
 
     private fun checkUser(){
-        if(userAuth != null){
+        if(fAuth.currentUser != null){
             startActivity(Intent(applicationContext, MainActivity::class.java))
             finishAffinity()
-        }else{
-            startActivity(Intent(applicationContext, SignInActivity::class.java))
         }
     }
 
@@ -57,7 +57,7 @@ class SignInActivity : AppCompatActivity(){
             binding.edtEmail.error = "Please enter your email"
             binding.edtEmail.requestFocus()
             return
-        }else if(!Patterns.EMAIL_ADDRESS.matcher(edtEmail).matches()){
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(edtEmail).matches()){
             binding.edtEmail.error = "Invalid email"
             binding.edtEmail.requestFocus()
             return
@@ -66,9 +66,8 @@ class SignInActivity : AppCompatActivity(){
             binding.edtPassword.requestFocus()
             return
         }else{
-            fAuth = FirebaseAuth.getInstance()
-            userAuth = fAuth.currentUser!!
             fAuth.signInWithEmailAndPassword(edtEmail, edtPassword).addOnSuccessListener {
+                userAuth = fAuth.currentUser!!
                 if(userAuth.isEmailVerified){
                     startActivity(Intent(applicationContext, MainActivity::class.java))
                     finishAffinity()

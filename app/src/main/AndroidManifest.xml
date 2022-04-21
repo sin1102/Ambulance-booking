@@ -13,59 +13,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
+            android:name=".user.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".user.ProfileActivity"
-            android:exported="false"
-            />
-
+            android:exported="false" />
         <activity
             android:name=".Map.Map"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Menu.About"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Menu.Payment"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Menu.Contact"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Menu.Settings"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".user.SignUpActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".user.SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+        </activity> <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> -->
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"
-            />
+            android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I"/>
-
+            android:value="AIzaSyBfsr99sqhCdfv2VdJphF-W5gheu_PFz4I" />
     </application>
 
 </manifest>

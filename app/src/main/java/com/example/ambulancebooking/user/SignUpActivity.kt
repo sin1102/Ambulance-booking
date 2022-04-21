@@ -26,6 +26,10 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnSignUp.setOnClickListener{
             signUp()
         }
+        binding.btnSignIn.setOnClickListener {
+            startActivity(Intent(applicationContext, SignInActivity::class.java))
+            finish()
+        }
     }
 
     private fun showToast(message : String){
@@ -77,6 +81,7 @@ class SignUpActivity : AppCompatActivity() {
                     database.child(userID).setValue(user)
                     val intent = Intent(applicationContext, SignInActivity::class.java)
                     startActivity(intent)
+                    finish()
                     showToast("Registered Successfully")
                 }
 
