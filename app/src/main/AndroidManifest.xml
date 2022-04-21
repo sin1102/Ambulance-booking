@@ -13,58 +13,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".user.ProfileActivity"
             android:exported="false"
             />
 
         <activity
             android:name=".Map.Map"
-            android:exported="true"></activity>
+            android:exported="false"/>
 
         <activity
             android:name=".Menu.About"
-            android:exported="true"></activity>
+            android:exported="false"/>
 
         <activity
             android:name=".Menu.Payment"
-            android:exported="true"></activity>
+            android:exported="false"/>
 
         <activity
             android:name=".Menu.Contact"
-            android:exported="true"></activity>
+            android:exported="false"/>
 
         <activity
             android:name=".Menu.Settings"
-            android:exported="true"></activity>
+            android:exported="false"/>
 
         <activity
-            android:name=".MyProfileActivity"
-            android:exported="true"></activity>
+            android:name=".user.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <activity
-            android:name=".SignUpActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-
-        <activity
-            android:name=".SignInActivity"
+            android:name=".user.SignInActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
-
-        </activity>
-
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
 
         <meta-data
             android:name="preloaded_fonts"

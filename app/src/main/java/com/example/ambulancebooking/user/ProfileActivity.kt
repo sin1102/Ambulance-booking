@@ -1,7 +1,8 @@
-package com.example.ambulancebooking
+package com.example.ambulancebooking.user
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ambulancebooking.R
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {

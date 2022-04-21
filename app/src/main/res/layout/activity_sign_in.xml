@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="@drawable/paper_layers_red_193411_1440x2560"
-    tools:context=".SignInActivity">
+    tools:context=".user.SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,12 +33,14 @@
         android:textColor="@color/white" />
 
     <EditText
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:backgroundTint="@color/white"
-        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawableStart="@drawable/ic_baseline_email_white"
         android:drawablePadding="10dp"
         android:textColorHint="#AAAAAA"
         android:layout_marginStart="20dp"
@@ -47,10 +49,12 @@
         android:textSize="18dp"/>
 
     <EditText
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:hint="Password"
+        android:inputType="textPassword"
         android:backgroundTint="@color/white"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
@@ -92,6 +96,7 @@
 
 
     <Button
+        android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign In"
@@ -104,6 +109,7 @@
         android:background="@drawable/radius_corner_button_sign_in"/>
 
     <TextView
+        android:id="@+id/txtSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No Account Yet? Create An Account"
