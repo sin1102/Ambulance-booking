@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivitySettingsBinding
+import com.example.ambulancebooking.user.FingerprintActivity
 import com.example.ambulancebooking.user.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -31,6 +32,9 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(applicationContext, MainActivity::class.java))
             finish()
         }
+        binding.fingerprintButton.setOnClickListener {
+            startActivity(Intent(applicationContext, FingerprintActivity::class.java))
+            finishAffinity()
+        }
     }
-
 }
