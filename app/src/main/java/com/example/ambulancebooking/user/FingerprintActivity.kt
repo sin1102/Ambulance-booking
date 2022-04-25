@@ -33,21 +33,21 @@ class FingerprintActivity : AppCompatActivity() {
                 super.onAuthenticationError(errorCode, errString)
 
                 authStatus.text = "Authentication Error: $errString"
-                Toast.makeText(this@FingerprintActivity, "Authentication Error: $errString", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@FingerprintActivity, "Authentication Error: $errString", Toast.LENGTH_SHORT).show()
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
 
                 authStatus.text = "Authentication Succeed...!"
-                Toast.makeText(this@FingerprintActivity, "Authentication Succeed---!", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@FingerprintActivity, "Authentication Succeed---!", Toast.LENGTH_SHORT).show()
             }
 
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
 
                 authStatus.text = "Authentication Failed...!"
-                Toast.makeText(this@FingerprintActivity, "Authentication Failed...!", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@FingerprintActivity, "Authentication Failed...!", Toast.LENGTH_SHORT).show()
             }
         })
 
