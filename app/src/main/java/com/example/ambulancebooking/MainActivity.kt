@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.airbnb.lottie.LottieAnimationView
 import com.example.ambulancebooking.Map.Map
+import com.example.ambulancebooking.Map.NewMap
 import com.example.ambulancebooking.Menu.About
 import com.example.ambulancebooking.Menu.Contact
 import com.example.ambulancebooking.Menu.Payment
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         }
         var checkAnim = findViewById<LottieAnimationView>(R.id.lottieAmbulance)
         checkAnim.setOnClickListener {
-            val intent = Intent(this, Map::class.java).also {
+            val intent = Intent(this, NewMap::class.java).also {
                 startActivity(it)
             }
         }

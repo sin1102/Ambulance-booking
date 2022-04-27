@@ -15,7 +15,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
+        minSdkVersion 23
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -70,5 +70,5 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
 
-
+    implementation 'com.mapbox.maps:android:10.4.2'
 }

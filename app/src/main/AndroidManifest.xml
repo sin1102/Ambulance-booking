@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
+            android:name=".Map.NewMap"
+            android:exported="false" />
+        <activity
             android:name=".user.FingerprintActivity"
             android:exported="false" />
         <activity
