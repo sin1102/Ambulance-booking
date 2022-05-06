@@ -23,12 +23,12 @@ class SignInActivity : AppCompatActivity(){
         fAuth = FirebaseAuth.getInstance()
         setListener()
         checkUser()
-    }
-
-    private fun setListener(){
         binding.btnSignIn.setOnClickListener {
             signIn()
         }
+    }
+
+    private fun setListener(){
         binding.btnSignUp.setOnClickListener{
             startActivity(Intent(applicationContext, SignUpActivity::class.java))
         }
@@ -66,9 +66,9 @@ class SignInActivity : AppCompatActivity(){
             binding.edtPassword.requestFocus()
             return
         }else{
-            fAuth.signInWithEmailAndPassword(edtEmail, edtPassword).addOnCompleteListener {task ->
-                userAuth = fAuth.currentUser!!
+            fAuth.signInWithEmailAndPassword(edtEmail, edtPassword).addOnCompleteListener(this){task ->
                 if(task.isSuccessful){
+                    userAuth = fAuth.currentUser!!
                     if(userAuth.isEmailVerified){
                         startActivity(Intent(applicationContext, MainActivity::class.java))
                         finishAffinity()

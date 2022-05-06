@@ -17,9 +17,9 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         CoroutineScope(Dispatchers.Main).launch {
-            delay(6000L)
+            delay(3000L)
             startActivity(Intent(this@SplashScreen, SignInActivity::class.java))
-            finish()
+            finishAffinity()
         }
     }
 }
