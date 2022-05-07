@@ -5,18 +5,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.airbnb.lottie.LottieAnimationView
-import com.example.ambulancebooking.Map.Map
-import com.example.ambulancebooking.Map.NewMap
 import com.example.ambulancebooking.Menu.About
 import com.example.ambulancebooking.Menu.Contact
 import com.example.ambulancebooking.Menu.Payment
 import com.example.ambulancebooking.Menu.Settings
 import com.example.ambulancebooking.databinding.ActivityMainBinding
+import com.example.ambulancebooking.map.NewMap
 import com.example.ambulancebooking.user.ProfileActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

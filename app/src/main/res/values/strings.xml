@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Ambulance Booking</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="mapbox_access_token">pk.eyJ1Ijoic2luMTEwMiIsImEiOiJjbDJneDBhNzIwNWsxM2lucXNvY25oM2oyIn0.VnRTdlPj3venUi8CoLtgAg</string>
+    <string name="mapbox_access_token">pk.eyJ1Ijoic2luMTEwMiIsImEiOiJjbDJvcm9vbjMxNHM5M2JydThhaTVudHZ2In0.odWb_Q_yBBbyND5aZFN0fQ</string>
 </resources>

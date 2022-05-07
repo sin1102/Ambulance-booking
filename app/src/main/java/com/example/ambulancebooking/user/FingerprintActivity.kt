@@ -1,14 +1,10 @@
 package com.example.ambulancebooking.user
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
-import com.example.ambulancebooking.Map.Map
 import com.example.ambulancebooking.R
 import kotlinx.android.synthetic.main.activity_about.*
 import kotlinx.android.synthetic.main.activity_fingerprint.*

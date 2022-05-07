@@ -71,4 +71,11 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
 
     implementation 'com.mapbox.maps:android:10.4.2'
+    implementation "androidx.fragment:fragment-ktx:1.4.1"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    implementation 'com.mapbox.search:mapbox-search-android-ui:1.0.0-beta.29'
+    implementation 'com.mapbox.navigation:android:2.4.0'
+    implementation project(":android-auto")
 }
