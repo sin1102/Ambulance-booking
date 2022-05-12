@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -35,6 +36,16 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun showToast(message : String){
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun loading(isLoading : Boolean){
+        if(isLoading){
+            binding.btnSignUp.visibility = View.GONE
+            binding.ProgressBar.visibility = View.VISIBLE
+        }else{
+            binding.btnSignUp.visibility = View.VISIBLE
+            binding.ProgressBar.visibility = View.GONE
+        }
     }
 
     private fun signUp() {
@@ -69,6 +80,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.edtConfirmPassword.requestFocus()
             return
         }else{
+            loading(true)
             fAuth.createUserWithEmailAndPassword(edtEmail, edtPassword).addOnCompleteListener {task ->
                 userAuth = FirebaseAuth.getInstance().currentUser!!
                 userID = fAuth.uid!!
@@ -81,6 +93,7 @@ class SignUpActivity : AppCompatActivity() {
                     }else{
                         userAuth.sendEmailVerification()
                         showToast("Registered Successfully")
+                        loading(false)
                         startActivity(Intent(applicationContext, SignInActivity::class.java))
                         finishAffinity()
                     }
@@ -89,12 +102,6 @@ class SignUpActivity : AppCompatActivity() {
                 }
 
             }
-//            userAuth.sendEmailVerification()
-//
-//            val intent = Intent(applicationContext, SignInActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//            showToast("Registered Successfully")
         }
     }
 }

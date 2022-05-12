@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
-import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivityPhoneSignUpBinding
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth

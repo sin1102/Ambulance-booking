@@ -47,7 +47,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#AAAAAA"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -63,7 +63,7 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColorHint="#AAAAAA"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edtConfirmPassword"
@@ -79,7 +79,7 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColorHint="#AAAAAA"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -106,7 +106,6 @@
             android:visibility="invisible"/>
 
     </FrameLayout>
-
 
     <Button
         android:id="@+id/btnSignIn"

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivitySignInBinding
@@ -40,6 +41,16 @@ class SignInActivity : AppCompatActivity(){
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 
+    private fun loading(isLoading : Boolean){
+        if(isLoading){
+            binding.btnSignIn.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
+        }else{
+            binding.btnSignIn.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
     private fun signIn(){
 
         val edtEmail = binding.edtEmail.text.toString().trim()
@@ -58,10 +69,12 @@ class SignInActivity : AppCompatActivity(){
             binding.edtPassword.requestFocus()
             return
         }else{
+            loading(true)
             fAuth.signInWithEmailAndPassword(edtEmail, edtPassword).addOnCompleteListener(this){task ->
                 if(task.isSuccessful){
                     userAuth = fAuth.currentUser!!
                     if(userAuth.isEmailVerified){
+                        loading(false)
                         startActivity(Intent(applicationContext, MainActivity::class.java))
                         finishAffinity()
                     }else{
