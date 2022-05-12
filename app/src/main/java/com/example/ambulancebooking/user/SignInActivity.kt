@@ -22,7 +22,6 @@ class SignInActivity : AppCompatActivity(){
         setContentView(binding.root)
         fAuth = FirebaseAuth.getInstance()
         setListener()
-        checkUser()
         binding.btnSignIn.setOnClickListener {
             signIn()
         }
@@ -39,13 +38,6 @@ class SignInActivity : AppCompatActivity(){
 
     private fun showToast(message : String){
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun checkUser(){
-        if(fAuth.currentUser != null){
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-            finish()
-        }
     }
 
     private fun signIn(){

@@ -7,6 +7,7 @@ import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivitySettingsBinding
 import com.example.ambulancebooking.user.FingerprintActivity
 import com.example.ambulancebooking.user.SignInActivity
+import com.example.ambulancebooking.user.SignInOptionActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class Settings : AppCompatActivity() {
@@ -25,7 +26,7 @@ class Settings : AppCompatActivity() {
     private fun setListeners(){
         binding.logoutButton.setOnClickListener {
             fAuth.signOut()
-            startActivity(Intent(applicationContext, SignInActivity::class.java))
+            startActivity(Intent(applicationContext, SignInOptionActivity::class.java))
             finishAffinity()
         }
         binding.backButton.setOnClickListener {

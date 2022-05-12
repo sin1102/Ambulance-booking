@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fAuth = FirebaseAuth.getInstance()
-        checkUser()
+        //checkUser()
 
         aboutButton.setOnClickListener{
             val intent = Intent(this, About::class.java).also {
