@@ -15,9 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
+            android:name=".Content.TermsOfUserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Content.AboutAppActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AboutContentActivity"
+            android:exported="true"
+            android:label="@string/title_activity_about_content"
+            android:theme="@style/Theme.AmbulanceBooking.NoActionBar" />
+        <activity
+            android:name=".Content.LanguageSelectionActivity"
+            android:exported="true" />
+        <activity
             android:name=".user.SignInOptionActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".user.PhoneVerifyActivity"
             android:exported="false"
@@ -25,7 +39,7 @@
         <activity
             android:name=".user.PhoneSignUpActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".map.NewMap"
             android:exported="false" />
