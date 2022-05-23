@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.R
+import com.example.ambulancebooking.drivier.DriverOrUserActivity
 import com.example.ambulancebooking.user.SignInActivity
 import com.example.ambulancebooking.user.SignInOptionActivity
 import kotlinx.coroutines.CoroutineScope
@@ -19,7 +20,7 @@ class SplashScreen : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000L)
-            startActivity(Intent(applicationContext, SignInOptionActivity::class.java))
+            startActivity(Intent(applicationContext, DriverOrUserActivity::class.java))
             finishAffinity()
         }
     }

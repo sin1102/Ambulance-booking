@@ -15,16 +15,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
+            android:name=".drivier.DriverSignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".drivier.DriverSignInActivity"
+            android:exported="true" />
+        <activity
+            android:name=".drivier.DriverMainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".drivier.DriverOrUserActivity"
+            android:exported="true" />
+        <activity
             android:name=".Content.TermsOfUserActivity"
             android:exported="true" />
         <activity
             android:name=".Content.AboutAppActivity"
             android:exported="true" />
-        <activity
-            android:name=".AboutContentActivity"
-            android:exported="true"
-            android:label="@string/title_activity_about_content"
-            android:theme="@style/Theme.AmbulanceBooking.NoActionBar" />
         <activity
             android:name=".Content.LanguageSelectionActivity"
             android:exported="true" />
