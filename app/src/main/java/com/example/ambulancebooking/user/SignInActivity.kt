@@ -23,9 +23,6 @@ class SignInActivity : AppCompatActivity(){
         setContentView(binding.root)
         fAuth = FirebaseAuth.getInstance()
         setListener()
-        binding.btnSignIn.setOnClickListener {
-            signIn()
-        }
     }
 
     private fun setListener(){
@@ -34,6 +31,9 @@ class SignInActivity : AppCompatActivity(){
         }
         binding.txtForgotPassword.setOnClickListener{
             startActivity(Intent(applicationContext, ForgotPasswordActivity::class.java))
+        }
+        binding.btnSignIn.setOnClickListener {
+            signIn()
         }
     }
 
@@ -78,9 +78,11 @@ class SignInActivity : AppCompatActivity(){
                         startActivity(Intent(applicationContext, MainActivity::class.java))
                         finishAffinity()
                     }else{
+                        loading(false)
                         showToast("Please verify your email")
                     }
                 }else{
+                    loading(false)
                     showToast("Wrong password or email")
                 }
             }

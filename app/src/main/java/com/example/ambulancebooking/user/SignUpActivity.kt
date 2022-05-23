@@ -72,7 +72,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.edtPassword.requestFocus()
             return
         }else if(edtPassword.length < 6){
-            binding.edtPassword.error = "Your password must be bigger than 6 characters"
+            binding.edtPassword.error = "Your password must be bigger or equal 6 characters"
             binding.edtPassword.requestFocus()
             return
         }else if(edtConfirmPassword != edtPassword){
@@ -85,22 +85,23 @@ class SignUpActivity : AppCompatActivity() {
                 userAuth = FirebaseAuth.getInstance().currentUser!!
                 userID = fAuth.uid!!
                 if(task.isSuccessful){
-                    database = FirebaseDatabase.getInstance().getReference("Users")
-                    val user = Users(edtName, edtEmail)
-                    database.child(userID).setValue(user)
                     if(userAuth.isEmailVerified){
+                        loading(false)
                         showToast("Email used. Please try another one")
                     }else{
-                        userAuth.sendEmailVerification()
-                        showToast("Registered Successfully")
                         loading(false)
+                        userAuth.sendEmailVerification()
+                        database = FirebaseDatabase.getInstance().getReference("Users")
+                        val user = Users(edtName, edtEmail)
+                        database.child(userID).setValue(user)
+                        showToast("Registered Successfully")
                         startActivity(Intent(applicationContext, SignInActivity::class.java))
                         finishAffinity()
                     }
                 }else{
+                    loading(false)
                     showToast("Email already existed")
                 }
-
             }
         }
     }
