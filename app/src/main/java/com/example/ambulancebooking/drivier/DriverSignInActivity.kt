@@ -6,12 +6,10 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
-import com.example.ambulancebooking.MainActivity
-import com.example.ambulancebooking.R
+
 import com.example.ambulancebooking.databinding.ActivityDriverSignInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_driver_sign_in.*
 
 class DriverSignInActivity : AppCompatActivity() {
 
@@ -34,7 +32,6 @@ class DriverSignInActivity : AppCompatActivity() {
         binding.driverSignIn.setOnClickListener {
             driverSignIn()
         }
-
     }
 
     private fun showToast(message : String){

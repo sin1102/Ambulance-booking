@@ -92,7 +92,7 @@ class SignUpActivity : AppCompatActivity() {
                         loading(false)
                         userAuth.sendEmailVerification()
                         database = FirebaseDatabase.getInstance().getReference("Users")
-                        val user = Users(edtName, edtEmail)
+                        val user = Users(edtName, edtEmail, null, null)
                         database.child(userID).setValue(user)
                         showToast("Registered Successfully")
                         startActivity(Intent(applicationContext, SignInActivity::class.java))

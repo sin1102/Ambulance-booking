@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ImageView
@@ -110,7 +111,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/purple_500"
+        android:background="#AA0000"
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         android:elevation="16dp"

@@ -7,6 +7,7 @@ import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivitySettingsBinding
 import com.example.ambulancebooking.user.FingerprintActivity
 import com.example.ambulancebooking.Content.LanguageSelectionActivity
+import com.example.ambulancebooking.user.ChangePasswordActivity
 import com.example.ambulancebooking.user.SignInOptionActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -35,11 +36,13 @@ class Settings : AppCompatActivity() {
         }
         binding.fingerprintButton.setOnClickListener {
             startActivity(Intent(applicationContext, FingerprintActivity::class.java))
-            finish()
         }
         binding.languagesButton.setOnClickListener {
             startActivity(Intent(applicationContext, LanguageSelectionActivity::class.java))
-            finish()
+        }
+
+        binding.btnChangePassword.setOnClickListener {
+            startActivity(Intent(applicationContext, ChangePasswordActivity::class.java))
         }
     }
 }
