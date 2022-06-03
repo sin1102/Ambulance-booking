@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivityContactBinding
 
 class Contact : AppCompatActivity() {
@@ -27,9 +28,9 @@ class Contact : AppCompatActivity() {
             builder.setTitle("Phone Call")
             builder.setMessage("Do you want to call $phone ?")
             builder.setPositiveButton("Yes") {
-                    dialog, i -> call() }
+                    _, _ -> call() }
             builder.setNegativeButton("No") {
-                    dialog, i -> }
+                    _, _ -> }
             builder.show()
         }
 
@@ -40,10 +41,15 @@ class Contact : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
+
+        binding.backButton.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
     private fun call(){
-        var phone : String = binding.tvPhone.text.toString().trim()
+        val phone : String = binding.tvPhone.text.toString().trim()
         val intent = Intent(Intent.ACTION_CALL)
         intent.data = Uri.parse("tel:$phone")
         startActivity(intent)

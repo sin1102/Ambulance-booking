@@ -1,4 +1,4 @@
-package com.example.ambulancebooking.drivier
+package com.example.ambulancebooking.driver
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

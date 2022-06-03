@@ -1,4 +1,4 @@
-package com.example.ambulancebooking.drivier
+package com.example.ambulancebooking.driver
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
-import com.example.ambulancebooking.R
 import com.example.ambulancebooking.databinding.ActivityDriverSignUpBinding
-import com.example.ambulancebooking.user.SignInActivity
-import com.example.ambulancebooking.user.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference

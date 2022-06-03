@@ -20,22 +20,23 @@
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
             android:name=".Menu.SendEmail"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".user.ChangePasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name=".drivier.DriverSignUpActivity"
+            android:name=".driver.DriverSignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".drivier.DriverSignInActivity"
+            android:name=".driver.DriverSignInActivity"
             android:exported="true" />
         <activity
-            android:name=".drivier.DriverMainActivity"
+            android:name=".driver.DriverMainActivity"
             android:exported="true" />
         <activity
-            android:name=".drivier.DriverOrUserActivity"
+            android:name=".driver.DriverOrUserActivity"
             android:exported="true" />
         <activity
             android:name=".Content.TermsOfUserActivity"
