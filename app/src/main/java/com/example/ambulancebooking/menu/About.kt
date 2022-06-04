@@ -1,4 +1,4 @@
-package com.example.ambulancebooking.Menu
+package com.example.ambulancebooking.menu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

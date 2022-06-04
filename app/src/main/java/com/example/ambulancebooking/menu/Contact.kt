@@ -1,4 +1,4 @@
-package com.example.ambulancebooking.Menu
+package com.example.ambulancebooking.menu
 
 import android.R
 import android.content.Intent

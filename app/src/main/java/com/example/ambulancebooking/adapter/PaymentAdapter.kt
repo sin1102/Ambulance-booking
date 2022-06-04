@@ -1,4 +1,4 @@
-package com.example.ambulancebooking.Adapter
+package com.example.ambulancebooking.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ambulancebooking.R
-import org.w3c.dom.Text
 
 class PaymentAdapter : RecyclerView.Adapter <PaymentAdapter.ViewHolder>() {
 

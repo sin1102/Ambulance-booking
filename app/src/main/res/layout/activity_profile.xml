@@ -5,14 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:layout_gravity="center"
     android:background="@drawable/profile_background"
     tools:context=".user.ProfileActivity">
 
+    <Button
+        android:id="@+id/btnBack"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:text="Back"
+        app:icon="@drawable/ic_back"
+        android:textColor="@color/black"
+        app:srcCompat="@drawable/ic_back" />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:background="@drawable/ic_baseline_person_24" />
 
     <EditText
@@ -20,8 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:textColorHint="#999999"
+        android:backgroundTint="#999999"
+        android:textColor="@color/black"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp" />
 
@@ -30,6 +47,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:textColorHint="#999999"
+        android:backgroundTint="#999999"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -40,7 +60,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Phone Number"
+        android:textColorHint="#999999"
+        android:backgroundTint="#999999"
         android:inputType="phone"
+        android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"/>
@@ -50,7 +73,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Address"
+        android:textColorHint="#999999"
+        android:backgroundTint="#999999"
         android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        android:minLines="1"
+        android:maxLines="4"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp" />
@@ -59,9 +87,10 @@
         android:id="@+id/btnOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:src="@drawable/ic_baseline_check_24"
         app:fabSize="normal"
         android:elevation="6dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="40dp"/>
 
 </LinearLayout>

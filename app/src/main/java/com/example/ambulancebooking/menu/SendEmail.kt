@@ -1,10 +1,9 @@
-package com.example.ambulancebooking.Menu
+package com.example.ambulancebooking.menu
 
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivitySendEmailBinding
 
 class SendEmail : AppCompatActivity() {
@@ -25,11 +24,6 @@ class SendEmail : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_SUBJECT, subject)
             intent.putExtra(Intent.EXTRA_TEXT, message)
             startActivity(intent)
-        }
-
-        binding.btnBack.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
         }
     }
 }

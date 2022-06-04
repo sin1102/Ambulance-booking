@@ -19,34 +19,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
-            android:name=".Menu.SendEmail"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:name=".menu.Hospitals"
+            android:exported="false" />
+        <activity
+            android:name=".menu.SendEmail"
+            android:exported="false" />
         <activity
             android:name=".user.ChangePasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".driver.DriverSignUpActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".driver.DriverSignInActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".driver.DriverMainActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".driver.DriverOrUserActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Content.TermsOfUserActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Content.AboutAppActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Content.LanguageSelectionActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".user.SignInOptionActivity"
             android:exported="false"
@@ -75,16 +77,16 @@
             android:name=".map.Map"
             android:exported="false" />
         <activity
-            android:name=".Menu.About"
+            android:name=".menu.About"
             android:exported="false" />
         <activity
-            android:name=".Menu.Payment"
+            android:name=".menu.Payment"
             android:exported="false" />
         <activity
-            android:name=".Menu.Contact"
+            android:name=".menu.Contact"
             android:exported="false" />
         <activity
-            android:name=".Menu.Settings"
+            android:name=".menu.Settings"
             android:exported="false" />
         <activity
             android:name=".user.SignUpActivity"

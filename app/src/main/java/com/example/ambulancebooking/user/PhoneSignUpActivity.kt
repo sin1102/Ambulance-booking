@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.databinding.ActivityPhoneSignUpBinding
+import com.example.ambulancebooking.model.Users
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
 import com.google.firebase.database.DatabaseReference
@@ -41,13 +42,14 @@ class PhoneSignUpActivity : AppCompatActivity() {
                 // verify without needing to send or enter a verification code
                 // 2. Auto retrieval. On some devices Google Play services can automatically
                 // detect the incoming verification SMS and perform verification without user action
+                loading(true)
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
                 //This callback is invoked in an invalid request for verification is made,
                 // for instance if the phone number is not valid
                 showToast("${e.message}")
-                loading(true)
+                loading(false)
             }
 
             override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
@@ -70,16 +72,20 @@ class PhoneSignUpActivity : AppCompatActivity() {
     private fun setListener(){
         binding.btnConfirm.setOnClickListener {
             var phone = binding.edtPhoneNumber.text.toString().trim()
+            val name = binding.edtName.text.toString().trim()
 
             if(phone.isEmpty()){
                 binding.edtPhoneNumber.error = "Please enter your phone number"
                 binding.edtPhoneNumber.requestFocus()
+            }else if(name.isEmpty()){
+                binding.edtName.error = "Please enter your name"
+                binding.edtName.requestFocus()
             }else{
                 phone = "+84$phone"
                 fUser = fAuth.currentUser!!
                 userID = fUser.uid
                 databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-                val user = Users(null, null, phone, null)
+                val user = Users(name, null, phone, null)
                 databaseReference.child(userID).setValue(user)
                 startPhoneNumberVerification(phone)
                 loading(true)

@@ -6,12 +6,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivityProfileBinding
+import com.example.ambulancebooking.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import java.io.File
 import kotlin.collections.HashMap
 
@@ -29,7 +30,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         firebaseAuth = FirebaseAuth.getInstance()
         setListeners()
         showProfile()
@@ -44,6 +44,13 @@ class ProfileActivity : AppCompatActivity() {
         binding.btnOk.setOnClickListener {
             updateProfile()
             uploadImage()
+            startActivity(Intent(this, MainActivity::class.java))
+            finishAffinity()
+        }
+
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
@@ -100,8 +107,6 @@ class ProfileActivity : AppCompatActivity() {
         databaseReference.child(userID).updateChildren(user).addOnCompleteListener {task ->
             if(task.isSuccessful){
                 showToast("Updated Successful")
-                startActivity(Intent(this, ProfileActivity::class.java))
-                finishAffinity()
             }
         }.addOnFailureListener {
             showToast("Updated Fail")
@@ -126,14 +131,9 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun uploadImage(){
-//        val formatter = SimpleDateFormat("yyyy/MM/dd/HH/mm/ss", Locale.getDefault())
-//        val now = Date()
-//        val fileName = formatter.format(now)
-
         firebaseUser = firebaseAuth.currentUser!!
         userID = firebaseUser.uid
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$userID")
-
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$userID.jpg")
         storageReference.putFile(imageUri).addOnSuccessListener {
             binding.imgProfile.setImageURI(imageUri)
         }.addOnFailureListener{
