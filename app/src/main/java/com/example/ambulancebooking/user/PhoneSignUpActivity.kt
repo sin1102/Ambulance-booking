@@ -72,20 +72,15 @@ class PhoneSignUpActivity : AppCompatActivity() {
     private fun setListener(){
         binding.btnConfirm.setOnClickListener {
             var phone = binding.edtPhoneNumber.text.toString().trim()
-            val name = binding.edtName.text.toString().trim()
-
             if(phone.isEmpty()){
                 binding.edtPhoneNumber.error = "Please enter your phone number"
                 binding.edtPhoneNumber.requestFocus()
-            }else if(name.isEmpty()){
-                binding.edtName.error = "Please enter your name"
-                binding.edtName.requestFocus()
             }else{
                 phone = "+84$phone"
                 fUser = fAuth.currentUser!!
                 userID = fUser.uid
                 databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-                val user = Users(name, null, phone, null)
+                val user = Users(null, null, phone, null)
                 databaseReference.child(userID).setValue(user)
                 startPhoneNumberVerification(phone)
                 loading(true)

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ambulancebooking.MainActivity
@@ -23,8 +25,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var userID : String
-
-    private lateinit var imageUri : Uri
+    private val IMAGE_REQUEST_CODE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +44,21 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.btnOk.setOnClickListener {
             updateProfile()
-            uploadImage()
-            startActivity(Intent(this, MainActivity::class.java))
-            finishAffinity()
         }
 
         binding.btnBack.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+    }
+
+    private fun loading(isLoading : Boolean){
+        if(isLoading){
+            binding.btnOk.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
+        }else{
+            binding.btnOk.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.GONE
         }
     }
 
@@ -81,9 +89,11 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun showImage(){
+        loading(true)
         val storageReference = FirebaseStorage.getInstance().getReference("images/$userID.jpg")
         val localFile = File.createTempFile("tempImage", "jpg")
         storageReference.getFile(localFile).addOnSuccessListener {
+            loading(false)
             val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
             binding.imgProfile.setImageBitmap(bitmap)
         }
@@ -95,47 +105,57 @@ class ProfileActivity : AppCompatActivity() {
         val phone = binding.edtPhone.text.toString().trim()
         val address = binding.edtAddress.text.toString().trim()
 
-        firebaseUser = firebaseAuth.currentUser!!
-        userID = firebaseUser.uid
-
-        val user = HashMap<String, Any>()
-        user["email"] = email
-        user["name"] = name
-        user["phone"] = phone
-        user["address"] = address
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-        databaseReference.child(userID).updateChildren(user).addOnCompleteListener {task ->
-            if(task.isSuccessful){
-                showToast("Updated Successful")
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            binding.edtEmail.error = "Email Invalid"
+            binding.edtEmail.requestFocus()
+        }else if(phone.length > 10 || phone.length < 10){
+            binding.edtPhone.error = "Phone Invalid"
+            binding.edtPhone.requestFocus()
+        }else{
+            loading(true)
+            firebaseUser = firebaseAuth.currentUser!!
+            userID = firebaseUser.uid
+            val user = HashMap<String, Any>()
+            user["email"] = email
+            user["name"] = name
+            user["phone"] = phone
+            user["address"] = address
+            databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+            databaseReference.child(userID).updateChildren(user).addOnCompleteListener {task ->
+                if(task.isSuccessful){
+                    loading(false)
+                    showToast("Updated Successful")
+                }
+            }.addOnFailureListener {
+                loading(false)
+                showToast("Updated Fail")
             }
-        }.addOnFailureListener {
-            showToast("Updated Fail")
         }
+
+
     }
 
     private fun selectImage(){
-        val intent = Intent()
+        val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-
-        startActivityForResult(intent, 100)
+        startActivityForResult(intent, IMAGE_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == 100 && resultCode == RESULT_OK){
-            imageUri = data?.data!!
+        if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
+            val imageUri : Uri = data?.data!!
             binding.imgProfile.setImageURI(imageUri)
+            uploadImage(imageUri)
         }
     }
 
-    private fun uploadImage(){
+    private fun uploadImage(imageUri : Uri){
         firebaseUser = firebaseAuth.currentUser!!
         userID = firebaseUser.uid
         val storageReference = FirebaseStorage.getInstance().getReference("images/$userID.jpg")
         storageReference.putFile(imageUri).addOnSuccessListener {
-            binding.imgProfile.setImageURI(imageUri)
         }.addOnFailureListener{
             showToast("Change Avatar Failed")
         }

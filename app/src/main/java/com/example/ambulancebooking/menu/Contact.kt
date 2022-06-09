@@ -1,11 +1,14 @@
 package com.example.ambulancebooking.menu
 
+import android.Manifest
 import android.R
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivityContactBinding
 
@@ -22,8 +25,11 @@ class Contact : AppCompatActivity() {
     }
 
     private fun setListeners(){
-        val phone = binding.tvPhone.text.toString().trim()
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 101)
+        }
         binding.tvPhone.setOnClickListener {
+            val phone = binding.tvPhone.text.toString().trim()
             val builder = AlertDialog.Builder(this, R.style.Theme_DeviceDefault_Dialog)
             builder.setTitle("Phone Call")
             builder.setMessage("Do you want to call $phone ?")
@@ -34,18 +40,37 @@ class Contact : AppCompatActivity() {
             builder.show()
         }
 
+        binding.tvFacebook.setOnClickListener {
+            openFacebook("https://www.facebook.com/profile.php?id=100008911560773")
+        }
+
+        binding.tvWeb.setOnClickListener {
+            openWebsite("https://www.fvhospital.com/vi/trang-chu/")
+        }
+
         binding.tvEmail.setOnClickListener {
-            val email = binding.tvEmail.text.toString().trim()
+            val email : String = binding.tvEmail.text.toString().trim()
             val intent = Intent(this, SendEmail::class.java)
-            intent.putExtra("email", email)
+            intent.putExtra("emailContact", email)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
-        binding.backButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this@Contact, MainActivity::class.java))
             finish()
         }
+    }
+
+    private fun openWebsite(s : String){
+        val uri = Uri.parse(s)
+        startActivity(Intent(Intent.ACTION_VIEW, uri))
+    }
+
+    private fun openFacebook(s : String){
+        val uri = Uri.parse(s)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 
     private fun call(){

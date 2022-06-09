@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
+            android:name=".menu.HospitalDetail"
+            android:exported="false" />
+        <activity
             android:name=".menu.Hospitals"
             android:exported="false" />
         <activity
