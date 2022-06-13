@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import java.io.File
 import kotlin.collections.HashMap
 
@@ -34,7 +35,6 @@ class ProfileActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         setListeners()
         showProfile()
-        showImage()
     }
 
     private fun setListeners(){
@@ -67,6 +67,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun showProfile(){
+        loading(true)
         firebaseUser = firebaseAuth.currentUser!!
         userID = firebaseUser.uid
         databaseReference = FirebaseDatabase.getInstance().getReference("Users")
@@ -80,23 +81,14 @@ class ProfileActivity : AppCompatActivity() {
                         binding.edtName.setText(user.name)
                         binding.edtPhone.setText(user.phone)
                         binding.edtAddress.setText(user.address)
+                        Picasso.get().load(user.image).into(binding.imgProfile)
                     }
                 }
+                loading(false)
             }
 
             override fun onCancelled(error: DatabaseError) {}
         })
-    }
-
-    private fun showImage(){
-        loading(true)
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$userID.jpg")
-        val localFile = File.createTempFile("tempImage", "jpg")
-        storageReference.getFile(localFile).addOnSuccessListener {
-            loading(false)
-            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-            binding.imgProfile.setImageBitmap(bitmap)
-        }
     }
 
     private fun updateProfile(){
@@ -131,8 +123,6 @@ class ProfileActivity : AppCompatActivity() {
                 showToast("Updated Fail")
             }
         }
-
-
     }
 
     private fun selectImage(){
@@ -152,12 +142,21 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun uploadImage(imageUri : Uri){
+        loading(true)
         firebaseUser = firebaseAuth.currentUser!!
         userID = firebaseUser.uid
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$userID.jpg")
+        val storageReference = FirebaseStorage.getInstance().getReference("users/$userID.jpg")
         storageReference.putFile(imageUri).addOnSuccessListener {
+            storageReference.downloadUrl.addOnSuccessListener {
+                databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+                    .child(userID).child("image")
+                databaseReference.setValue(it.toString())
+                showToast("Change Avatar Successful")
+                loading(false)
+            }
         }.addOnFailureListener{
             showToast("Change Avatar Failed")
+            loading(false)
         }
     }
 }

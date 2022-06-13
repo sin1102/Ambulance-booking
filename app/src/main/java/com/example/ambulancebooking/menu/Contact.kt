@@ -57,7 +57,7 @@ class Contact : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener {
-            startActivity(Intent(this@Contact, MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

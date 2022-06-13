@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginStart="4dp"
-        android:text="name"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -108,7 +107,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/purple_500"
+        android:background="#BB0000"
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         android:elevation="16dp"
@@ -131,7 +130,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aboutButton"
         app:layout_constraintVertical_bias="0.236"
-        app:strokeColor="@color/purple_500"
+        app:strokeColor="#BB0000"
         app:strokeWidth="3dp" />
 
     <Button
@@ -147,7 +146,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:strokeColor="@color/purple_500"
+        app:strokeColor="#BB0000"
         app:strokeWidth="3dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

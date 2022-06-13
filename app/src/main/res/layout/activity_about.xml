@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/backgroud"
+    android:background="@drawable/background_menu"
     tools:context=".menu.About">
 
     <Button
@@ -28,33 +28,21 @@
         android:textSize="35sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="30dp"/>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="229dp"
-        android:layout_height="174dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         app:srcCompat="@drawable/ambulance_booking"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Version 1.0.0"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center" />
-
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/aboutAppButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
+        android:layout_height="70dp"
         android:backgroundTint="@color/white"
         android:backgroundTintMode="screen"
         android:gravity="center_vertical"
@@ -62,7 +50,7 @@
         android:text="About app"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         app:icon="@drawable/ic_arrow_forward"
         app:iconGravity="end"
         app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24" />
@@ -71,8 +59,7 @@
         android:id="@+id/termsButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:layout_marginBottom="212dp"
+        android:layout_height="70dp"
         android:backgroundTint="@color/white"
         android:backgroundTintMode="screen"
         android:gravity="center_vertical"

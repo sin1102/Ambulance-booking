@@ -1,6 +1,9 @@
 package com.example.ambulancebooking.menu
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ambulancebooking.MainActivity
@@ -24,25 +27,35 @@ class Settings : AppCompatActivity() {
         setListeners()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setListeners(){
         binding.logoutButton.setOnClickListener {
             fAuth.signOut()
             startActivity(Intent(applicationContext, SignInOptionActivity::class.java))
             finishAffinity()
         }
+
         binding.backButton.setOnClickListener {
             startActivity(Intent(applicationContext, MainActivity::class.java))
             finish()
         }
-        binding.fingerprintButton.setOnClickListener {
-            startActivity(Intent(applicationContext, FingerprintActivity::class.java))
-        }
-        binding.languagesButton.setOnClickListener {
-            startActivity(Intent(applicationContext, LanguageSelectionActivity::class.java))
-        }
 
         binding.btnChangePassword.setOnClickListener {
             startActivity(Intent(applicationContext, ChangePasswordActivity::class.java))
+        }
+
+        binding.tvDevice.text = "BRAND: ${Build.BRAND}" +
+                "\nMODEL: ${Build.MODEL}" +
+                "\nPRODUCT: ${Build.PRODUCT}" +
+                "\nDISPLAY: ${Build.DISPLAY}" +
+                "\nFINGERPRINT: ${Build.FINGERPRINT}" +
+                "\nID: ${Build.ID}" +
+                "\nUSER: ${Build.USER}"
+
+        binding.btnWifiCheck.setOnClickListener {
+            val uri = Uri.parse("https://speedtest.vn/")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
         }
     }
 }

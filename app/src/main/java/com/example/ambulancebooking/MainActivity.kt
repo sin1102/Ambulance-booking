@@ -1,7 +1,6 @@
 package com.example.ambulancebooking
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.airbnb.lottie.LottieAnimationView
@@ -13,9 +12,8 @@ import com.example.ambulancebooking.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         fAuth = FirebaseAuth.getInstance()
         fUser = fAuth.currentUser!!
         userID = fUser.uid
-        showImage()
         showProfile()
         setListeners()
     }
@@ -94,20 +91,12 @@ class MainActivity : AppCompatActivity() {
                     if (dataSnapshot.key == userID) {
                         user = dataSnapshot.getValue(Users::class.java)
                         binding.txtName.text = user!!.name
+                        Picasso.get().load(user.image).into(binding.imgProfile)
                     }
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {}
         })
-    }
-
-    private fun showImage(){
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$userID.jpg")
-        val localFile = File.createTempFile("tempImage", "jpg")
-        storageReference.getFile(localFile).addOnSuccessListener {
-            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-            binding.imgProfile.setImageBitmap(bitmap)
-        }
     }
 }

@@ -20,29 +20,34 @@
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
             android:name=".menu.HospitalDetail"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".menu.Hospitals"
             android:exported="false" />
         <activity
             android:name=".menu.SendEmail"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".user.ChangePasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".driver.DriverSignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".driver.DriverSignInActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".driver.DriverMainActivity"
             android:exported="false" />
         <activity
             android:name=".driver.DriverOrUserActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Content.TermsOfUserActivity"
             android:exported="false" />
@@ -72,7 +77,8 @@
             android:exported="false" />
         <activity
             android:name=".user.ForgotPasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".user.ProfileActivity"
             android:exported="false" />

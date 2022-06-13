@@ -8,11 +8,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.databinding.ActivityPhoneSignUpBinding
-import com.example.ambulancebooking.model.Users
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import java.util.concurrent.TimeUnit
 
 class PhoneSignUpActivity : AppCompatActivity() {
@@ -22,10 +19,6 @@ class PhoneSignUpActivity : AppCompatActivity() {
     private var mCallBack : PhoneAuthProvider.OnVerificationStateChangedCallbacks? = null
     private var mVerificationId : String? = null
     private lateinit var fAuth : FirebaseAuth
-    private lateinit var fUser : FirebaseUser
-    private lateinit var databaseReference: DatabaseReference
-
-    private lateinit var userID : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,11 +70,6 @@ class PhoneSignUpActivity : AppCompatActivity() {
                 binding.edtPhoneNumber.requestFocus()
             }else{
                 phone = "+84$phone"
-                fUser = fAuth.currentUser!!
-                userID = fUser.uid
-                databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-                val user = Users(null, null, phone, null)
-                databaseReference.child(userID).setValue(user)
                 startPhoneNumberVerification(phone)
                 loading(true)
             }

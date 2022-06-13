@@ -25,7 +25,7 @@ class Hospitals : AppCompatActivity() {
 
         val btnBack : Button = findViewById(R.id.btnBack)
         btnBack.setOnClickListener {
-            startActivity(Intent(this@Hospitals, MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
         hospitalRecyclerView = findViewById(R.id.recyclerViewHospital)

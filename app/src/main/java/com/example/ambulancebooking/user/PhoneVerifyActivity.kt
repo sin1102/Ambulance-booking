@@ -53,13 +53,13 @@ class PhoneVerifyActivity : AppCompatActivity() {
             showToast("Please enter otp code")
         }else{
             val mVerificationId = intent.getStringExtra("mVerificationId")
-            val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(mVerificationId.toString(), otp)
-            signInWithPhoneAuthCredential(credential)
+            val credential1 : PhoneAuthCredential = PhoneAuthProvider.getCredential(mVerificationId.toString(), otp)
+            signInWithPhoneAuthCredential(credential1)
         }
     }
 
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        fAuth.signInWithCredential(credential)
+    private fun signInWithPhoneAuthCredential(credential1: PhoneAuthCredential) {
+        fAuth.signInWithCredential(credential1)
             .addOnSuccessListener {
                 val phone = fAuth.currentUser!!.phoneNumber
                 showToast("Logged in as $phone")

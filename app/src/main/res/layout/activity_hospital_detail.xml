@@ -4,22 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background_hospital"
     android:orientation="vertical"
     tools:context=".menu.HospitalDetail">
 
-    <Button
+    <ImageButton
         android:id="@+id/btnBack"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="10dp"
-        android:text="Back"
-        app:icon="@drawable/ic_back"
-        android:textColor="@color/black"
-        app:srcCompat="@drawable/ic_back" />
-
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_back"
+        android:background="@null"/>
     <ImageView
         android:id="@+id/imgHospital"
         android:layout_width="370dp"
@@ -34,14 +28,13 @@
         android:gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/white">
+        android:layout_marginEnd="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID: "
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="16sp"/>
 
@@ -51,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="id"
             android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -61,14 +54,13 @@
         android:gravity="center"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/white">
+        android:layout_marginEnd="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hospital name: "
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="16sp"
             android:minLines="1"
@@ -80,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="hospital"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:minLines="1"
             android:maxLines="2"/>
     </LinearLayout>
@@ -92,18 +84,16 @@
         android:gravity="center"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/white">
+        android:layout_marginEnd="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address: "
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:minLines="1"
-            android:maxLines="2"/>
+            android:lines="2"/>
 
         <TextView
             android:id="@+id/tvAddress"
@@ -111,9 +101,8 @@
             android:layout_height="wrap_content"
             android:text="address"
             android:textSize="16sp"
-            android:textColor="@color/black"
-            android:minLines="1"
-            android:maxLines="2"/>
+            android:textColor="@color/white"
+            android:lines="2"/>
     </LinearLayout>
 
     <LinearLayout
@@ -123,14 +112,13 @@
         android:gravity="center"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/white">
+        android:layout_marginEnd="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone: "
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="16sp"/>
 
@@ -140,13 +128,12 @@
             android:layout_height="wrap_content"
             android:text="phone"
             android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="horizontal"
         android:layout_marginTop="50dp"
         android:gravity="center">

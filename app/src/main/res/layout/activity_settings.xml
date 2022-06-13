@@ -1,149 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:orientation="vertical"
+    android:background="@drawable/background_menu"
     tools:context=".menu.Settings">
 
     <Button
         android:id="@+id/backButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="100dp"
-        android:layout_height="62dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
         android:text="back"
         android:textColor="@color/black"
         app:icon="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028"
         app:srcCompat="@drawable/ic_back" />
 
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/backgroud"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Settings"
-        android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/settings"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvDevice"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:paddingLeft="10dp"/>
 
     <Button
-        android:id="@+id/fingerprintButton"
+        android:id="@+id/btnWifiCheck"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        android:layout_width="410dp"
-        android:layout_height="71dp"
         android:backgroundTint="@color/white"
         android:backgroundTintMode="screen"
-        android:insetRight="10dp"
-        android:text="Fingerprint login settings"
-        android:gravity="center_vertical"
+        android:text="Wifi Check"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:icon="@drawable/ic_fingerprint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.575"
-        app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        android:gravity="center_vertical"
+        app:icon="@drawable/ic_baseline_wifi_24"/>
 
     <Button
         android:id="@+id/btnChangePassword"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        android:layout_width="410dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:backgroundTint="@color/white"
         android:backgroundTintMode="screen"
         android:insetRight="10dp"
         android:text="Change Password"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:gravity="center_vertical"
         app:icon="@drawable/ic_lock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fingerprintButton"
-        app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24" />
-
-    <Button
-        android:id="@+id/languagesButton"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        android:layout_width="410dp"
-        android:layout_height="71dp"
-        android:backgroundTint="@color/white"
-        android:backgroundTintMode="screen"
-        android:insetRight="10dp"
-        android:text="Languages"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:gravity="center_vertical"
-        android:textStyle="bold"
-        app:icon="@drawable/ic_language"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChangePassword"
-        app:layout_constraintVertical_bias="0.592"
         app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24" />
 
     <Button
         android:id="@+id/logoutButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        android:layout_width="410dp"
-        android:layout_height="71dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:backgroundTint="@color/white"
         android:backgroundTintMode="screen"
         android:insetRight="10dp"
         android:text="Log out"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:gravity="center_vertical"
-        app:icon="@drawable/ic_logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:icon="@drawable/ic_logout" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="159dp"
-        android:layout_height="141dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303"
-        app:srcCompat="@drawable/settings" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
