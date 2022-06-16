@@ -1,8 +1,10 @@
 package com.example.ambulancebooking
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.example.ambulancebooking.databinding.ActivityMainBinding
 import com.example.ambulancebooking.map.NewMap
@@ -76,9 +78,16 @@ class MainActivity : AppCompatActivity() {
         }
         val checkAnim = findViewById<LottieAnimationView>(R.id.lottieAmbulance)
         checkAnim.setOnClickListener {
-            val intent = Intent(this, NewMap::class.java).also {
-                startActivity(it)
+            if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED && ActivityCompat
+                    .checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
+            }else{
+                val intent = Intent(this, NewMap::class.java).also {
+                    startActivity(it)
+                }
             }
+
         }
     }
 
@@ -90,8 +99,13 @@ class MainActivity : AppCompatActivity() {
                 for (dataSnapshot in snapshot.children) {
                     if (dataSnapshot.key == userID) {
                         user = dataSnapshot.getValue(Users::class.java)
-                        binding.txtName.text = user!!.name
-                        Picasso.get().load(user.image).into(binding.imgProfile)
+                        if(user?.name != null){
+                            binding.txtName.text = user.name
+                        }else{
+                            val phone = fUser.phoneNumber
+                            binding.txtName.text = phone
+                        }
+                        Picasso.get().load(user?.image).into(binding.imgProfile)
                     }
                 }
             }

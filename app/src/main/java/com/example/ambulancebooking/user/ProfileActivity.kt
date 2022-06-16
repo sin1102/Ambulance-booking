@@ -1,7 +1,6 @@
 package com.example.ambulancebooking.user
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Patterns
@@ -16,7 +15,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import java.io.File
 import kotlin.collections.HashMap
 
 class ProfileActivity : AppCompatActivity() {
@@ -100,9 +98,6 @@ class ProfileActivity : AppCompatActivity() {
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.edtEmail.error = "Email Invalid"
             binding.edtEmail.requestFocus()
-        }else if(phone.length > 10 || phone.length < 10){
-            binding.edtPhone.error = "Phone Invalid"
-            binding.edtPhone.requestFocus()
         }else{
             loading(true)
             firebaseUser = firebaseAuth.currentUser!!

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -41,17 +42,24 @@ class Contact : AppCompatActivity() {
         }
 
         binding.tvFacebook.setOnClickListener {
-            openFacebook("https://www.facebook.com/profile.php?id=100008911560773")
+            try{
+                openFacebook("https://www.facebook.com/profile.php?id=100008911560773")
+            }catch(e : Exception){
+                showToast("Facebook account doesn't exist: ${e.message}")
+            }
         }
 
         binding.tvWeb.setOnClickListener {
-            openWebsite("https://www.fvhospital.com/vi/trang-chu/")
+            try{
+                openWebsite("https://www.fvhospital.com/vi/trang-chu/")
+            }catch(e : Exception){
+                showToast("Website doesn't exist: ${e.message}")
+            }
         }
 
         binding.tvEmail.setOnClickListener {
             val email : String = binding.tvEmail.text.toString().trim()
-            val intent = Intent(this, SendEmail::class.java)
-            intent.putExtra("emailContact", email)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:$email"))
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
@@ -60,6 +68,10 @@ class Contact : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+    }
+
+    private fun showToast(message : String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun openWebsite(s : String){
