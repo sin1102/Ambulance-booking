@@ -1,26 +1,25 @@
-package com.example.ambulancebooking.user
+package com.example.ambulancebooking.driver
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.R
-import com.example.ambulancebooking.databinding.ActivityProfileBinding
+import com.example.ambulancebooking.databinding.ActivityDriverProfileBinding
 import com.example.ambulancebooking.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import kotlin.collections.HashMap
 
-class ProfileActivity : AppCompatActivity() {
+class DriverProfileActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityProfileBinding
+    private lateinit var binding : ActivityDriverProfileBinding
     private lateinit var firebaseUser : FirebaseUser
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
@@ -29,26 +28,12 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfileBinding.inflate(layoutInflater)
+        binding = ActivityDriverProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         firebaseAuth = FirebaseAuth.getInstance()
         setListeners()
         showProfile()
-    }
-
-    private fun setListeners(){
-        binding.imgProfile.setOnClickListener {
-            selectImage()
-        }
-
-        binding.btnOk.setOnClickListener {
-            updateProfile()
-        }
-
-        binding.btnBack.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
     }
 
     private fun loading(isLoading : Boolean){
@@ -65,11 +50,11 @@ class ProfileActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun showProfile(){
+    private fun showProfile() {
         loading(true)
         firebaseUser = firebaseAuth.currentUser!!
         userID = firebaseUser.uid
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+        databaseReference = FirebaseDatabase.getInstance().getReference("Drivers")
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var user : Users? = snapshot.getValue(Users::class.java)
@@ -94,7 +79,22 @@ class ProfileActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateProfile(){
+    private fun setListeners() {
+        binding.imgProfile.setOnClickListener {
+            selectImage()
+        }
+
+        binding.btnOk.setOnClickListener {
+            updateProfile()
+        }
+
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this, DriverMainActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun updateProfile() {
         val email = binding.edtEmail.text.toString().trim()
         val name = binding.edtName.text.toString().trim()
         val phone = binding.edtPhone.text.toString().trim()
@@ -112,7 +112,7 @@ class ProfileActivity : AppCompatActivity() {
             user["name"] = name
             user["phone"] = phone
             user["address"] = address
-            databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+            databaseReference = FirebaseDatabase.getInstance().getReference("Drivers")
             databaseReference.child(userID).updateChildren(user).addOnCompleteListener {task ->
                 if(task.isSuccessful){
                     loading(false)
@@ -141,14 +141,14 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun uploadImage(imageUri : Uri){
+    private fun uploadImage(imageUri: Uri) {
         loading(true)
         firebaseUser = firebaseAuth.currentUser!!
         userID = firebaseUser.uid
-        val storageReference = FirebaseStorage.getInstance().getReference("users/$userID.jpg")
+        val storageReference = FirebaseStorage.getInstance().getReference("drivers/$userID.jpg")
         storageReference.putFile(imageUri).addOnSuccessListener {
             storageReference.downloadUrl.addOnSuccessListener {
-                databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+                databaseReference = FirebaseDatabase.getInstance().getReference("Drivers")
                     .child(userID).child("image")
                 databaseReference.setValue(it.toString())
                 showToast("Change Avatar Successful")

@@ -44,8 +44,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="159dp"
-        android:layout_height="141dp"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:text="back"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:icon="@drawable/ic_back"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"

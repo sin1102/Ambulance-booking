@@ -18,9 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbulanceBooking">
         <activity
-            android:name=".menu.HospitalDetail"
+            android:name=".driver.DriverChangePasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".driver.DriverSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".driver.DriverProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu.HospitalDetail"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".menu.Hospitals"
             android:exported="false" />
@@ -31,18 +41,18 @@
         <activity
             android:name=".driver.DriverSignUpActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".driver.DriverSignInActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".driver.DriverMainActivity"
             android:exported="false" />
         <activity
             android:name=".driver.DriverOrUserActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Content.TermsOfUserActivity"
             android:exported="false" />
@@ -73,7 +83,7 @@
         <activity
             android:name=".user.ForgotPasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".user.ProfileActivity"
             android:exported="false" />

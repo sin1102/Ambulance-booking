@@ -86,7 +86,7 @@ class DriverSignUpActivity : AppCompatActivity() {
             binding.edtPassword.error = "Your password must be bigger or equal 6 characters"
             binding.edtPassword.requestFocus()
             return
-        }else if(edtConfirmPassword != edtPassword){
+        }else if(confirmPassword != password){
             binding.edtConfirmPassword.error = "Password doesn't match"
             binding.edtConfirmPassword.requestFocus()
             return

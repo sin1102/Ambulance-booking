@@ -83,9 +83,8 @@ class MainActivity : AppCompatActivity() {
                     .checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
                 ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
             }else{
-                val intent = Intent(this, NewMap::class.java).also {
-                    startActivity(it)
-                }
+                val intent = Intent(this, NewMap::class.java)
+                startActivity(intent)
             }
 
         }
@@ -105,7 +104,13 @@ class MainActivity : AppCompatActivity() {
                             val phone = fUser.phoneNumber
                             binding.txtName.text = phone
                         }
-                        Picasso.get().load(user?.image).into(binding.imgProfile)
+
+                        if(user?.image == null){
+                            binding.imgProfile.setImageResource(R.drawable.user)
+                        }else{
+                            Picasso.get().load(user.image).into(binding.imgProfile)
+                        }
+
                     }
                 }
             }

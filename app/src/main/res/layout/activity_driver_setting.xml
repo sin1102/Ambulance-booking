@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background_menu"
-    tools:context=".menu.Settings">
+    android:orientation="vertical"
+    tools:context=".driver.DriverSettingActivity">
 
     <Button
         android:id="@+id/backButton"

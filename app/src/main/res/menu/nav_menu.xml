@@ -1,46 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:checkableBehavior="single">
-         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home"
-            android:title="Home"/>
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:cnb_iconColor="@color/white"/>
 
-        <item
-            android:id="@+id/nav_history"
-            android:icon="@drawable/ic_home"
-            android:title="History"/>
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_history"
+        android:title="History"
+        app:cnb_iconColor="@color/white"/>
 
-        <item
-            android:id="@+id/nav_notification"
-            android:icon="@drawable/ic_notifications"
-            android:title="Notification"/>
-    </group>
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notification"
+        app:cnb_iconColor="@color/white"/>
 
-    <item android:title="SUPPORT">
-        <menu>
-            <item android:id="@+id/nav_Support"
-                android:title="Support"
-                android:icon="@drawable/ic_baseline_support_agent_24"/>
-        </menu>
-    </item>
+    <item android:id="@+id/nav_Profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        app:cnb_iconColor="@color/white"/>
 
-    <item android:title="ACCOUNT">
-        <menu>
-            <item android:id="@+id/nav_Profile"
-                android:title="Profile"
-                android:icon="@drawable/ic_baseline_person_24"/>
-
-            <item android:id="@+id/nav_Change_Password"
-                android:title="ChangePassword"
-                android:icon="@drawable/ic_lock"/>
-
-            <item android:id="@+id/nav_Log_out"
-                android:title="Log out"
-                android:icon="@drawable/ic_logout"/>
-        </menu>
-
-    </item>
+    <item android:id="@+id/nav_Setting"
+        android:icon="@drawable/ic_settings"
+        android:title="Setting"
+        app:cnb_iconColor="@color/white"/>
 
 </menu>

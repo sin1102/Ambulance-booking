@@ -69,15 +69,9 @@ class DriverSignInActivity : AppCompatActivity() {
             firebaseAuth = FirebaseAuth.getInstance()
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){task ->
                 if(task.isSuccessful){
-                    firebaseUser = firebaseAuth.currentUser!!
-                    if(firebaseUser.isEmailVerified){
-                        loading(false)
-                        startActivity(Intent(this, DriverMainActivity::class.java))
-                        finishAffinity()
-                    }else{
-                        loading(false)
-                        showToast("Please verify your email")
-                    }
+                    loading(false)
+                    startActivity(Intent(this, DriverMainActivity::class.java))
+                    finishAffinity()
                 }else{
                     loading(false)
                     showToast("Wrong password or email")

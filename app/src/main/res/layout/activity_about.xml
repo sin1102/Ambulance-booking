@@ -16,7 +16,7 @@
         android:layout_marginStart="10dp"
         android:layout_gravity="start"
         android:text="back"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:icon="@drawable/ic_back"
         app:srcCompat="@drawable/ic_back" />
 
@@ -24,19 +24,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About"
-        android:textColor="@color/black"
-        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="40dp"/>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_height="140dp"
         app:srcCompat="@drawable/ambulance_booking"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="40dp"/>
 
     <Button
         android:id="@+id/aboutAppButton"

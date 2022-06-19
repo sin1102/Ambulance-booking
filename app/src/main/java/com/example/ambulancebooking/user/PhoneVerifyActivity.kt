@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivityPhoneVerifyBinding
-import com.example.ambulancebooking.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -68,7 +67,7 @@ class PhoneVerifyActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 userID = fAuth.currentUser!!.uid
                 val phone = fAuth.currentUser!!.phoneNumber
-                databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userID)
+                databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userID).child("phone")
                 databaseReference.setValue(phone)
                 showToast("Logged in as $phone")
                 startActivity(Intent(applicationContext, MainActivity::class.java))

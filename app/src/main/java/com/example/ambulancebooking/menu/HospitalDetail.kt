@@ -1,11 +1,13 @@
 package com.example.ambulancebooking.menu
 
+import android.R
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.ambulancebooking.databinding.ActivityHospitalDetailBinding
@@ -30,8 +32,16 @@ class HospitalDetail : AppCompatActivity() {
 
     private fun setListeners(){
         binding.btnBook.setOnClickListener {
-
+            val builder = AlertDialog.Builder(this, R.style.Theme_DeviceDefault_Dialog)
+            builder.setTitle("Booking")
+            builder.setMessage("Do you want to book this hospital ?")
+            builder.setPositiveButton("Yes") {
+                    _, _ -> Toast.makeText(this, "Booked", Toast.LENGTH_SHORT).show() }
+            builder.setNegativeButton("No") {
+                    _, _ -> }
+            builder.show()
         }
+
         binding.btnMap.setOnClickListener {
             fetchLocation()
         }
