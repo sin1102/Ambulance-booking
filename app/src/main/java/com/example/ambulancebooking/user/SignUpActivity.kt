@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.databinding.ActivitySignUpBinding
 import com.example.ambulancebooking.model.Users
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -25,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val firebaseAppCheck : FirebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance())
         fAuth = FirebaseAuth.getInstance()
         binding.btnSignUp.setOnClickListener{
             signUp()

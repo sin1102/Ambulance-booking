@@ -11,6 +11,8 @@ import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.R
 import com.example.ambulancebooking.databinding.ActivityDriverProfileBinding
 import com.example.ambulancebooking.model.Users
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -30,7 +32,8 @@ class DriverProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDriverProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val firebaseAppCheck : FirebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance())
         firebaseAuth = FirebaseAuth.getInstance()
         setListeners()
         showProfile()

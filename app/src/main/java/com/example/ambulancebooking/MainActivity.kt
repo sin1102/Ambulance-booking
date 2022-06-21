@@ -11,6 +11,8 @@ import com.example.ambulancebooking.map.NewMap
 import com.example.ambulancebooking.menu.*
 import com.example.ambulancebooking.user.ProfileActivity
 import com.example.ambulancebooking.model.Users
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val firebaseAppCheck : FirebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance())
         fAuth = FirebaseAuth.getInstance()
         fUser = fAuth.currentUser!!
         userID = fUser.uid

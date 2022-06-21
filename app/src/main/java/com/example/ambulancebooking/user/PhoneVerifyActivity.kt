@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Toast
 import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.databinding.ActivityPhoneVerifyBinding
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -24,7 +26,8 @@ class PhoneVerifyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPhoneVerifyBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val firebaseAppCheck : FirebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance())
         fAuth = FirebaseAuth.getInstance()
         setListener()
     }

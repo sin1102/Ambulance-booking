@@ -10,6 +10,8 @@ import com.example.ambulancebooking.MainActivity
 import com.example.ambulancebooking.adapter.HospitalAdapter
 import com.example.ambulancebooking.R
 import com.example.ambulancebooking.model.Hospital
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_hospitals.*
 
@@ -22,7 +24,8 @@ class Hospitals : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hospitals)
-
+        val firebaseAppCheck : FirebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance())
         val btnBack : Button = findViewById(R.id.btnBack)
         btnBack.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
